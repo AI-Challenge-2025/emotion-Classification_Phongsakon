@@ -17,9 +17,12 @@ https://www.kaggle.com/datasets/msambare/fer2013?resource=download
 
 จากนั้นนำมาเทรน ด้วย Google Colab
 โดยดาวน์โหลดไฟล์ Zip 
+
 from google.colab import files
 uploaded = files.upload()
+
 เเละเเตกไฟล์ด้วย
+
 !unzip archive.zip -d archive
 
 
