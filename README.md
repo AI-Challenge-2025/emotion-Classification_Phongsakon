@@ -16,13 +16,64 @@ https://www.kaggle.com/datasets/msambare/fer2013?resource=download
 ![image](https://github.com/user-attachments/assets/f5e296bd-e395-48c9-95da-35dcecb0de24)
 
 จากนั้นนำมาเทรน ด้วย Google Colab
-โดยดาวน์โหลดไฟล์ Zip 
+โดยดาวน์โหลดไฟล์ Zip ด้วยโค้ด
 
 from google.colab import files
 uploaded = files.upload()
 
-เเละเเตกไฟล์ด้วย
-
+เเละเเตกไฟล์ด้วยด้วยโค้ด
+ 
 !unzip archive.zip -d archive
+
+# การเทรนโมเดล
+
+ฝึก โมเดล CNN เพื่อจำแนกอารมณ์จากใบหน้า (เช่น angry,disgust,fear,happy,neutral,sad,surprise ) ด้วย ภาพขนาด 48x48 grayscale โดยใช้ PyTorch
+
+
+โหลดไลบรารีที่ใช้สำหรับการฝึกโมเดลภาพ และแสดงผลภาพ
+import os
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torchvision import datasets, transforms
+from torch.utils.data import DataLoader
+import matplotlib.pyplot as plt
+
+
+ตรวจสอบว่าใช้ GPU ได้หรือไม่ (ถ้าไม่ได้จะใช้ CPU)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print("Using device:", device)
+
+สำหรับ ข้อมูลฝึก (train) (augmentation) เพื่อให้โมเดลเรียนรู้หลากหลายขึ้น
+
+transform_train = transforms.Compose([
+    transforms.Resize((48, 48)),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(10),
+    transforms.Grayscale(),
+    transforms.ToTensor(),
+    transforms.Normalize((0.5,), (0.5,))
+])
+
+DataLoader ใช้แบ่งข้อมูลเป็น batch ละ 64 รูป
+ใช้ LR = 0.0005
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
