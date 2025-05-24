@@ -12,9 +12,10 @@ https://www.kaggle.com/datasets/msambare/fer2013?resource=download
 
 # การ labelling ข้อมูล 
 โดยการเเยกข้อมูลที่ดาวน์โหลดมา โดยเเยกเป็น 7 โฟล์เดอร์ 7 คลาส โดยมี 
+
 ![image](https://github.com/user-attachments/assets/f5e296bd-e395-48c9-95da-35dcecb0de24)
 
-เ
+
 
 
 
